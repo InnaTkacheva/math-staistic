@@ -11,40 +11,40 @@ from math import comb as C
 # смещенную и несмещенную оценки дисперсий для данной выборки.
 
 x=np.array([100, 80, 75, 77, 89, 33, 45, 25, 65, 17, 30, 24, 57, 55, 70, 75, 65, 84, 90, 150])
-print(f"среднее арифметическое = {np.mean(x)}")
 
+
+print(f"среднее арифметическое = {np.mean(x)}")
 def mean(x):
     return sum(x)/len(x)
-print(mean(x))
+print(f"среднее арифметическое = {mean(x)}")
 
-print(f"среднее квадратичное отклонение = {np.std(x)}")
 
+print(f"дисперсия = {np.var(x)}")
+# print(f"корень из дисперсии = {np.sqrt(950.11)}")
 def disp (x):
     xm=mean(x)
     sum=0
     for i in x:
         sum += pow(i-xm,2)
     return sum/len(x)
+print(f"дисперсия = {disp(x)}")
 
+
+print(f"среднее квадратичное отклонение = {np.std(x)}")
 def srkv(x):
     return sqrt(disp(x))
+print(f"среднее квадратичное отклонение = {srkv(x)}")
 
+
+print(f"дисперсия несмещенная = {np.var(x, ddof=1)}")
+# print(f"корень из дисперсии несмещенной = {np.sqrt(1000.1157894736842)}")
 def dispn (x):
     xm=mean(x)
     sum=0
     for i in x:
         sum += pow(i-xm,2)
     return sum/(len(x)-1)
-
-print(disp(x))
-print(srkv(x))
-print(dispn(x))
-
-# print(f"дисперсия = {np.var(x)}")
-# print(f"корень из дисперсии = {np.sqrt(950.11)}")
-# print(f"дисперсия несмещенная = {np.var(x, ddof=1)}")
-# print(f"корень из дисперсии несмещенной = {np.sqrt(1000.1157894736842)}")
-
+print(f"дисперсия несмещенная = {dispn(x)}")
 
 
 # Ex 2
